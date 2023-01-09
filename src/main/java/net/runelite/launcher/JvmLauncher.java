@@ -121,7 +121,6 @@ class JvmLauncher
 		arguments.addAll(clientArgs);
 
 		logger.info("Running {}", arguments);
-		Launcher.close();
 
 		ProcessBuilder builder = new ProcessBuilder(arguments.toArray(new String[0]));
 		builder.redirectErrorStream(true);

@@ -40,7 +40,6 @@ import com.google.common.hash.HashingOutputStream;
 import com.google.common.io.ByteStreams;
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
-import java.awt.SplashScreen;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -1386,7 +1385,7 @@ public class Launcher
 		}
 		else
 		{
-			SplashScreen.close();
+			SplashScreen.stop();
 		}
 	}
 
