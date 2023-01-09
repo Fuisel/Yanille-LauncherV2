@@ -24,9 +24,11 @@
  */
 package net.runelite.launcher;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -71,14 +73,14 @@ class JvmLauncher
 
 	static void launch(
 		Bootstrap bootstrap,
-		List<File> classpath,
+		List<File> results,
 		Collection<String> clientArgs,
 		Map<String, String> jvmProps,
 		List<String> jvmArgs,
 		String type) throws IOException
 	{
 		StringBuilder classPath = new StringBuilder();
-		for (var f : classpath)
+		for (File f : results)
 		{
 			if (classPath.length() > 0)
 			{
@@ -122,28 +124,23 @@ class JvmLauncher
 		Launcher.close();
 
 		ProcessBuilder builder = new ProcessBuilder(arguments.toArray(new String[0]));
-		builder.inheritIO();
+		builder.redirectErrorStream(true);
 		Process process = builder.start();
 
 		Launcher.close();
 
 		if (log.isDebugEnabled())
 		{
-			Launcher.close();
-
-			try
+			BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+			for (String line; (line = reader.readLine()) != null; )
 			{
-				process.waitFor();
-			}
-			catch (InterruptedException e)
-			{
-				throw new RuntimeException(e);
+				System.out.println(line);
 			}
 		}
 
 	}
 
-	static String[] getJvmArguments(Bootstrap bootstrap)
+	private static String[] getJvmArguments(Bootstrap bootstrap)
 	{
 		if (Launcher.isJava17())
 		{
