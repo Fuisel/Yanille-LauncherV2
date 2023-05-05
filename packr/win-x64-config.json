@@ -1,9 +1,9 @@
 {
   "platform": "windows64",
   "jdk": "win64-jdk",
-  "executable": "Vanguard",
+  "executable": "Yanille",
   "classpath": [
-    "target/Vanguard.jar"
+    "target/Yanille.jar"
   ],
   "mainclass": "net.runelite.launcher.Launcher",
   "vmargs": [

@@ -44,8 +44,8 @@ const val disableAWS = false
 ####  Setting up the release plugin
 
 * First copy the release plugin from my repo to your project here are the places to note
-    - https://github.com/Mark7625/Vanguard-Client-Public/tree/master/buildSrc <- Copy this whole dir
-    - https://github.com/Mark7625/Vanguard-Client-Public/blob/master/build.gradle.kts
+    - https://github.com/Mark7625/Yanille-Client-Public/tree/master/buildSrc <- Copy this whole dir
+    - https://github.com/Mark7625/Yanille-Client-Public/blob/master/build.gradle.kts
       Comapre the two files adding any missing stuff from my build gradle
 * Once you have done this you will need to make the keys to do this go to buildSrc/src/main/kotlin/keys.kt and run the file, this will make 3 files
 
@@ -69,14 +69,6 @@ runelite.type.manifest=https://glacyte.co.uk/testting/ClientManifest.json
 
 Should link should go to a json on your webhost or aws that looks like this 
 ```json
-[
-    {
-    "name": "Normal",
-    "main": "net.runelite.client.RuneLite",
-    "bootstrap": "https://glacyte.co.uk/testting/normal/bootstrap.json",
-    "bootstrapsig": "https://glacyte.co.uk/testting/normal/bootstrap.json.sha256",
-    "tooltip": "The Latest most stable Client"
-    },
     {
         "name": "Beta",
         "main": "net.runelite.client.RuneLite",
@@ -113,7 +105,7 @@ runelite.download.link=https://**elvarg**.net/download/
 runelite.website=https://**elvarg**.net/  
 runelite.bootstrap=https://elvarg.s3.eu-west-2.amazonaws.com/bootstrap.json  
 runelite.bootstrapsig=https://elvarg.s3.eu-west-2.amazonaws.com/bootstrap.json.sha256  
-runelite.name=**Vanguard**  
+runelite.name=**Yanille**  
 runelite.main=net.runelite.client.RuneLite
 ```
 
@@ -123,7 +115,7 @@ This will bring this window up
 
 ![This is an image](https://i.imgur.com/VqiqIeP.png)
 
-Make sure CC is selected and replace 'Vanguard' with 'MyCoolName' MAKE SURE ITS CAPS E same with the server name
+Make sure CC is selected and replace 'Yanille' with 'MyCoolName' MAKE SURE ITS CAPS E same with the server name
 
 3) Inside Intellij click the root of the project and press CTRL + ALT + R
 
@@ -164,7 +156,7 @@ public static final Color PROGRESS_ERROR_COLOR = new Color(230, 30, 30);
 
 ## Getting your files
 
-Once you have pushed your files to github, github actions will build your launcher you can then find them under the workflow action it runs EG: https://github.com/Vanguard-Community/Runelite-Launcher-rsps/actions/runs/3014844052
+Once you have pushed your files to github, github actions will build your launcher you can then find them under the workflow action it runs EG: https://github.com/Yanille-Community/Runelite-Launcher-rsps/actions/runs/3014844052
 
 # Credits
     - Runelite For the base
